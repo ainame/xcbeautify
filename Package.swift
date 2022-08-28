@@ -18,15 +18,24 @@ let package = Package(
             dependencies: [
                 "Colorizer",
                 "XMLCoder"
-            ]),
+            ],
+            swiftSettings: [
+              .unsafeFlags(["-Xfrontend", "-enable-bare-slash-regex"]),
+              .unsafeFlags(["-Xfrontend", "-enable-experimental-string-processing"]),
+              .unsafeFlags(["-Xfrontend", "-disable-availability-checking"]),
+              .unsafeFlags(["-sdk", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"]),
+            ]
+        ),
         .target(
             name: "xcbeautify",
             dependencies: [
                 "XcbeautifyLib",
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
-            ]),
+            ]
+        ),
         .testTarget(
             name: "XcbeautifyLibTests",
-            dependencies: ["XcbeautifyLib"]),
+            dependencies: ["XcbeautifyLib"]
+        ),
     ]
 )

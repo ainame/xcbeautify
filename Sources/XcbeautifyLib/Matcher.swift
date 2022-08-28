@@ -86,6 +86,6 @@ func makeMatcher(pattern: Pattern) -> Matching {
     if shouldUseParserMatcher {
         return ParserMatcher()
     } else {
-        return RegexMatcher(pattern: pattern)
+        return NewRegexMatcher(pattern: pattern)
     }
 }

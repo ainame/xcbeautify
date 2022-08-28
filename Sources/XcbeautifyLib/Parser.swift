@@ -160,7 +160,7 @@ public class Parser {
             return
         }
         
-        let groups = RegexMatcher(pattern: .executed).capturedGroups(string: line)
+        let groups = NewRegexMatcher(pattern: .executed).capturedGroups(string: line)
         summary = TestSummary(
             testsCount: Int(groups[0]) ?? 0,
             skippedCount: 0,
@@ -178,7 +178,7 @@ public class Parser {
             return
         }
         
-        let groups = RegexMatcher(pattern: .executedWithSkipped).capturedGroups(string: line)
+        let groups = NewRegexMatcher(pattern: .executedWithSkipped).capturedGroups(string: line)
         summary = TestSummary(
             testsCount: Int(groups[0]) ?? 0,
             skippedCount: Int(groups[1]) ?? 0,
